@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shring Travels | Himalayan Adventures</title>
+<meta name="description" content="Explore Himalayan trekking adventures with Shring Travels.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#171208;color:white;font-family:'DM Sans',sans-serif}
+header{background:#100d05;padding:17px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5;border-bottom:1px solid #d4af37}
+.logo{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:800}.logo img{width:46px;height:46px;object-fit:contain}.logo span{color:#d4af37}
+nav{display:flex;gap:20px}a{color:inherit;text-decoration:none}
+.hero{min-height:570px;padding:90px 7%;display:flex;align-items:center;background:linear-gradient(90deg,#100d05ed,#03170f40),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1800') center/cover}
+.hero div{max-width:700px}
+.hero small{color:#d4af37;letter-spacing:4px;font-weight:bold}
+h1{font:800 clamp(48px,8vw,85px) 'Playfair Display';margin:22px 0}
+h1 span{color:#d4af37}
+.hero p{font-size:17px;line-height:1.8;color:#e1e9e2}
+.btn{display:inline-block;background:#d4af37;color:#102015;padding:14px 23px;border-radius:30px;font-weight:800;margin-top:23px;border:0;cursor:pointer}
+section{padding:65px 5%}
+.heading{text-align:center;margin-bottom:35px}
+.heading small{color:#d4af37;letter-spacing:3px}
+h2{font:700 clamp(32px,5vw,48px) 'Playfair Display';margin:12px 0}
+.heading p{color:#dfd0a5}
+.filters{display:flex;gap:10px;max-width:850px;margin:0 auto 30px;flex-wrap:wrap}
+input,select{padding:14px;background:#211b0d;border:1px solid #80672b;color:white;border-radius:9px;flex:1;min-width:130px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#211b0d;border:1px solid #80672b;border-radius:15px;overflow:hidden}
+.card img{width:100%;height:190px;object-fit:cover}
+.cardbody{padding:17px}
+.card h3{font-size:19px;margin:9px 0}
+.tag{color:#d4af37;font-size:12px;font-weight:bold}
+.price{color:#d4af37;font-size:23px;font-weight:bold;margin-top:12px}
+.card p{color:#dfd0a5;font-size:13px;margin-top:8px}
+.card button{width:100%;margin-top:12px}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.info article{padding:25px;background:#211b0d;border:1px solid #80672b;border-radius:13px}
+.info h3{color:#d4af37;margin-bottom:10px}
+.info p{color:#dfd0a5;line-height:1.7}
+footer{text-align:center;padding:40px;background:#100d05;color:#dfd0a5;line-height:2}
+footer a{color:#d4af37}.social-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;text-decoration:none}.social-link:hover{color:#fff}.instagram-link{margin-top:12px;border:1px solid #d4af37;border-radius:25px;padding:9px 20px;font-size:18px;font-weight:bold;letter-spacing:.4px}
+@media(max-width:700px){header{padding:14px 4%;flex-wrap:wrap;gap:12px}.logo{font-size:21px}nav{width:100%;justify-content:space-between;gap:8px;font-size:12px}.hero{min-height:480px;padding:55px 6%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card img{height:125px}.cardbody{padding:11px}.card h3{font-size:15px}.price{font-size:18px}.info{grid-template-columns:1fr}section{padding:45px 4%}}
+@media(max-width:370px){.grid{grid-template-columns:1fr}.card img{height:190px}}
+.section-title{color:#d4af37;text-align:center;margin:35px 0 20px;font-size:25px;letter-spacing:1px}
+.full-details{margin:12px 0;color:#dfd0a5;font-size:13px}
+.full-details summary{color:#d4af37;cursor:pointer;font-weight:bold;padding:8px 0}
+.full-details p{line-height:1.5;margin:7px 0}
+
+.icon-nav a{display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;line-height:1.2}
+.icon-nav a small{color:#d4af37;font-size:23px;font-weight:bold}
+.icon-nav a:hover{color:#d4af37}
+
+/* Char Dham cards: match trek cards */
+.chardham-gallery{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;margin:20px 0!important}
+.chardham-gallery .card{padding:0!important;overflow:hidden}
+.chardham-gallery .card img{display:block;width:100%;height:190px!important;object-fit:cover!important;border-radius:0!important;margin:0}
+.chardham-gallery .cardbody{padding:12px}
+.chardham-gallery .card h3{font-size:16px;margin:4px 0 8px}
+.chardham-gallery .card p{font-size:13px;margin:0}
+@media(max-width:700px){.chardham-gallery .card img{height:125px!important}.chardham-gallery .cardbody{padding:10px}}
+
+
+/* Premium alternating Char Dham layout */
+.chardham-gallery{
+display:grid!important;
+grid-template-columns:1fr 1fr!important;
+gap:18px!important;
+align-items:start!important;
+margin:28px 0!important
+}
+.chardham-gallery .card{
+padding:0!important;
+overflow:hidden;
+border:1px solid #80672b;
+border-radius:18px;
+background:#211b0d;
+box-shadow:0 8px 24px #0008;
+transition:transform .25s
+}
+.chardham-gallery .card:nth-child(even){margin-top:38px}
+.chardham-gallery .card img{
+width:100%;
+height:190px!important;
+object-fit:cover;
+display:block;
+border-radius:0!important
+}
+.chardham-gallery .card:nth-child(1) img,
+.chardham-gallery .card:nth-child(4) img{height:225px!important}
+.chardham-gallery .cardbody{text-align:center;padding:13px}
+.chardham-gallery .card h3{
+color:#d4af37;
+font-size:16px;
+letter-spacing:1.5px;
+margin:3px 0 7px
+}
+.chardham-gallery .card p{color:#dfd0a5;font-size:12px;margin:0}
+@media(max-width:700px){
+.chardham-gallery{gap:12px!important}
+.chardham-gallery .card:nth-child(even){margin-top:25px}
+.chardham-gallery .card img{height:145px!important}
+.chardham-gallery .card:nth-child(1) img,
+.chardham-gallery .card:nth-child(4) img{height:175px!important}
+.chardham-gallery .cardbody{padding:10px}
+}
+
+
+/* Char Dham: four photos side by side */
+.chardham-gallery{
+display:grid!important;
+grid-template-columns:repeat(4,minmax(0,1fr))!important;
+gap:14px!important;
+align-items:stretch!important;
+margin:25px 0!important;
+}
+.chardham-gallery .card{
+margin:0!important;
+padding:0!important;
+overflow:hidden;
+border:1px solid #80672b;
+border-radius:16px;
+background:#211b0d;
+}
+.chardham-gallery .card img{
+width:100%;
+height:170px!important;
+object-fit:cover!important;
+display:block;
+}
+.chardham-gallery .cardbody{text-align:center;padding:12px 5px}
+.chardham-gallery .card h3{color:#d4af37;font-size:15px;margin:3px 0}
+.chardham-gallery .card p{font-size:12px;margin:5px 0;color:#dfd0a5}
+@media(max-width:700px){
+.chardham-gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+.chardham-gallery .card img{height:145px!important}
+}
+
+</style>
+
+<style id="chardham-final-fix">
+.grid.chardham-gallery{
+ display:grid!important;
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ gap:14px!important;
+ align-items:stretch!important;
+ margin:25px 0!important;
+}
+.grid.chardham-gallery .card{
+ margin:0!important;
+ padding:0!important;
+ overflow:hidden!important;
+ border:1px solid #80672b!important;
+ border-radius:16px!important;
+ background:#211b0d!important;
+}
+.grid.chardham-gallery .card img{
+ display:block!important;
+ width:100%!important;
+ height:170px!important;
+ object-fit:cover!important;
+ border-radius:0!important;
+}
+.grid.chardham-gallery .cardbody{
+ padding:12px 5px!important;
+ text-align:center!important;
+}
+.grid.chardham-gallery .card h3{
+ color:#d4af37!important;
+ font-size:15px!important;
+ margin:3px 0!important;
+}
+.grid.chardham-gallery .card p{
+ color:#dfd0a5!important;
+ font-size:12px!important;
+ margin:5px 0!important;
+}
+@media(max-width:700px){
+ .grid.chardham-gallery{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:12px!important;
+ }
+ .grid.chardham-gallery .card img{height:145px!important}
+}
+</style>
+
+
+<style>
+.complete-chardham {
+  margin: 30px 0;
+  padding: 24px;
+  border: 1px solid #d4af37;
+  border-radius: 18px;
+  background: linear-gradient(145deg,#211b0d,#100d05);
+  color: #dfd0a5;
+}
+.complete-chardham-content { max-width: 850px; margin: auto; }
+.complete-chardham h2 { color:#d4af37; margin:12px 0; }
+.complete-chardham h3 { color:#f0d77b; margin:16px 0 8px; }
+.complete-chardham li { margin:9px 0; line-height:1.5; }
+.complete-chardham p { line-height:1.6; }
+@media(max-width:600px) {
+  .complete-chardham { padding:16px; }
+}
+</style>
+
+
+<style>
+.complete-dham-gallery {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0 24px;
+}
+.complete-dham-gallery img {
+  display:block;
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid #80672b;
+}
+@media(max-width:600px) {
+  .complete-dham-gallery img { height:125px; }
+}
+</style>
+
+</head>
+<body>
+<header>
+<div class="logo"><img src="images/shring-logo.png" alt="Shring Travels logo">SHRING <span>TRAVELS</span></div>
+<nav class="icon-nav">
+<a href="#home"><span>Home</span><small>⌂</small></a>
+<a href="#char-dham"><span>Char Dham</span><small>🙏</small></a>
+<a href="#treks"><span>Treks</span><small>⛰</small></a>
+<a href="#about"><span>About</span><small>ⓘ</small></a>
+<a href="#contact"><span>Contact</span><small>☎</small></a>
+</nav>
+</header>
+<div class="hero" id="home"><div>
+<small>EXPLORE • DISCOVER • ADVENTURE</small>
+<h1>Discover the <span>Himalayas</span></h1>
+<p>उत्तराखंड से पूरे भारत तक। Explore beautiful Himalayan valleys, mountain trails and unforgettable adventures with Shring Travels.</p>
+<a class="btn" href="#treks">EXPLORE TREKS →</a>
+</div></div>
+
+<section id="char-dham" style="padding:55px 5%;background:#100d05">
+<div class="heading">
+<small>DIVINE JOURNEY • UTTARAKHAND</small>
+<h2>CHAR DHAM YATRA</h2>
+<p>Experience the sacred journey to Yamunotri, Gangotri, Kedarnath and Badrinath with Shring Travels.</p>
+</div>
+
+<div class="grid chardham-gallery">
+<article class="card">
+<img src="images/yamunotri.jpg" alt="Yamunotri Temple" loading="lazy">
+<div class="cardbody">
+<h3>YAMUNOTRI DHAM</h3>
+<p>Visit the sacred temple dedicated to Goddess Yamuna, surrounded by Himalayan scenery.</p>
+<p><b>Route:</b> Dehradun → Barkot → Janki Chatti → Yamunotri</p>
+<p><b>Package Duration:</b> 3 Days / 2 Nights</p>
+<p><b>Travel Time:</b> 7–9 hours to Barkot; then Janki Chatti to temple trek</p>
+<p><b>Price:</b> Contact for current package price</p>
+<a class="btn" href="https://wa.me/919027611795?text=Please%20share%20Yamunotri%20Dham%20package%20details%20and%20price">ENQUIRE NOW →</a>
+</div></article>
+<article class="card">
+<img src="images/gangotri.jpg" alt="Gangotri Temple" loading="lazy">
+<div class="cardbody">
+<h3>GANGOTRI DHAM</h3>
+<p>Discover the sacred Gangotri Temple, associated with the origin of the River Ganga.</p>
+<p><b>Route:</b> Dehradun → Uttarkashi → Gangotri</p>
+<p><b>Package Duration:</b> 3 Days / 2 Nights</p>
+<p><b>Travel Time:</b> Approx. 10–12 hours by road from Dehradun</p>
+<p><b>Price:</b> Contact for current package price</p>
+<a class="btn" href="https://wa.me/919027611795?text=Please%20share%20Gangotri%20Dham%20package%20details%20and%20price">ENQUIRE NOW →</a>
+</div></article>
+<article class="card">
+<img src="images/kedarnath-dham.jpg" alt="Kedarnath Temple" loading="lazy">
+<div class="cardbody">
+<h3>KEDARNATH DHAM</h3>
+<p>Visit the revered Lord Shiva temple in the beautiful Garhwal Himalayas.</p>
+<p><b>Route:</b> Dehradun → Guptkashi → Sonprayag → Kedarnath</p>
+<p><b>Package Duration:</b> 4 Days / 3 Nights</p>
+<p><b>Travel Time:</b> 8–10 hours to Guptkashi; then approx. 16–18 km trek from Gaurikund</p>
+<p><b>Price:</b> Contact for current package price</p>
+<a class="btn" href="https://wa.me/919027611795?text=Please%20share%20Kedarnath%20Dham%20package%20details%20and%20price">ENQUIRE NOW →</a>
+</div></article>
+<article class="card">
+<img src="images/badrinath.jpg" alt="Badrinath Temple" loading="lazy">
+<div class="cardbody">
+<h3>BADRINATH DHAM</h3>
+<p>Experience the sacred Badrinath Temple, dedicated to Lord Vishnu.</p>
+<p><b>Route:</b> Dehradun → Joshimath → Badrinath</p>
+<p><b>Package Duration:</b> 3 Days / 2 Nights</p>
+<p><b>Travel Time:</b> Approx. 10–12 hours by road from Dehradun</p>
+<p><b>Price:</b> Contact for current package price</p>
+<a class="btn" href="https://wa.me/919027611795?text=Please%20share%20Badrinath%20Dham%20package%20details%20and%20price">ENQUIRE NOW →</a>
+</div></article>
+</div>
+</section>
+
+<div class="complete-chardham">
+  <div class="complete-chardham-content">
+<div class="complete-dham-gallery">
+  <img src="images/yamunotri.jpg" alt="Yamunotri Temple" loading="lazy">
+  <img src="images/gangotri.jpg" alt="Gangotri Temple" loading="lazy">
+  <img src="images/kedarnath-dham.jpg" alt="Kedarnath Temple" loading="lazy">
+  <img src="images/badrinath.jpg" alt="Badrinath Temple" loading="lazy">
+</div>
+
+    <small>SHRING TRAVELS • SPECIAL YATRA PACKAGE</small>
+    <h2>COMPLETE CHAR DHAM YATRA</h2>
+    <h3>10 Days / 9 Nights</h3>
+    <p><b>Starting & Ending Point:</b> Dehradun</p>
+    <p><b>Route:</b> Dehradun → Yamunotri → Gangotri → Kedarnath → Badrinath → Dehradun</p>
+    <h3>10-Day Travel Itinerary</h3>
+    <ul>
+      <li><b>Day 1:</b> Dehradun to Barkot</li>
+      <li><b>Day 2:</b> Yamunotri Darshan and return to Barkot</li>
+      <li><b>Day 3:</b> Barkot to Uttarkashi</li>
+      <li><b>Day 4:</b> Gangotri Darshan and return to Uttarkashi</li>
+      <li><b>Day 5:</b> Uttarkashi to Guptkashi</li>
+      <li><b>Day 6:</b> Kedarnath trek and Darshan</li>
+      <li><b>Day 7:</b> Return from Kedarnath to Guptkashi</li>
+      <li><b>Day 8:</b> Guptkashi to Badrinath</li>
+      <li><b>Day 9:</b> Badrinath Darshan and journey towards Rudraprayag</li>
+      <li><b>Day 10:</b> Return to Dehradun</li>
+    </ul>
+    <p><b>Price:</b> Contact for current package price</p>
+    <a class="btn" href="https://wa.me/919027611795?text=Please%20share%20Complete%20Char%20Dham%20Yatra%2010%20Days%209%20Nights%20package%20details%20and%20price">BOOK COMPLETE YATRA →</a>
+  </div>
+</div>
+
+<section id="treks">
+<div class="heading"><small>YOUR NEXT ADVENTURE</small><h2>Explore Our Treks</h2><p>Discover 24 Himalayan adventures.</p></div>
+<div class="filters">
+<input id="search" placeholder="Search trek..." oninput="render()">
+<select id="season" onchange="render()"><option value="All">All Seasons</option><option>Summer & Monsoon</option><option>Winter</option></select>
+</div>
+<h2 class="section-title">POPULAR WINTER TREKS</h2>
+<div class="grid" id="winterGrid"></div>
+<h2 class="section-title">SUMMER & MONSOON TREKS</h2>
+<div class="grid" id="summerGrid"></div>
+</section>
+<section id="about">
+<div class="heading"><small>ABOUT US</small><h2>Travel Beyond Ordinary</h2><p>Discover the beauty of the Himalayas with Shring Travels.</p></div>
+<div class="info">
+<article><h3>Mountain Adventures</h3><p>Explore beautiful mountain trails and valleys.</p></article>
+<article><h3>Local Support</h3><p>Contact our team for itinerary and booking assistance.</p></article>
+<article><h3>Guided Journeys</h3><p>Plan your next Himalayan experience with us.</p></article>
+</div>
+</section>
+
+
+<section id="reviews">
+<div class="heading"><small>TRAVELLER FEEDBACK</small><h2>CUSTOMER REVIEWS</h2><p>Share your experience with Shring Travels.</p></div>
+<div class="info">
+<article>
+<h3>Write a Review</h3>
+<form id="reviewForm">
+<label for="reviewName">Your Name</label>
+<input id="reviewName" type="text" maxlength="50" required>
+<label for="reviewRating">Your Rating</label>
+<select id="reviewRating" required>
+<option value="">Select stars</option>
+<option value="5">★★★★★ - Excellent</option>
+<option value="4">★★★★ - Very Good</option>
+<option value="3">★★★ - Good</option>
+<option value="2">★★ - Fair</option>
+<option value="1">★ - Poor</option>
+</select>
+<label for="reviewMessage">Your Review</label>
+<textarea id="reviewMessage" rows="4" maxlength="500" required></textarea>
+<button class="btn" type="submit">Submit Review</button>
+<p id="reviewStatus" role="status"></p>
+</form>
+</article>
+<article>
+<h3>Guest Reviews</h3>
+<div id="approvedReviews">Loading reviews...</div>
+</article>
+<article>
+<h3>Admin Login</h3>
+<form id="adminLoginForm">
+<label for="adminEmail">Admin Email</label>
+<input id="adminEmail" type="email" required>
+<label for="adminPassword">Admin Password</label>
+<input id="adminPassword" type="password" required>
+<button class="btn" type="submit">Admin Login</button>
+<button class="btn" id="adminLogout" type="button" hidden>Logout</button>
+<p id="adminStatus" role="status"></p>
+</form>
+<div id="pendingReviews"></div>
+</article>
+</div>
+</section>
+<section id="upcoming-dates">
+<div class="heading"><small>PLAN YOUR ADVENTURE</small><h2>UPCOMING TREK DATES</h2><p>Choose your trek and check upcoming departures.</p></div>
+<div class="info" id="upcomingDepartures"><article><h3>Loading Trek Dates...</h3></article></div>
+</section>
+<section id="contact">
+<div class="heading"><small>GET IN TOUCH</small><h2>Contact Shring Travels</h2></div>
+<div class="info">
+<article><h3>WhatsApp / Call</h3><p><a class="social-link" href="tel:+919027611795">☎ Call: +91 9027611795</a></p><a class="btn" href="https://wa.me/919027611795">Book Now</a></article>
+<article><h3>Email</h3><p><a class="social-link" href="mailto:shringtravels7@gmail.com">✉ shringtravels7@gmail.com</a></p><a href="mailto:shringtravels7@gmail.com">Send Email</a></article>
+<article><h3>Instagram</h3><a class="social-link instagram-link" href="https://www.instagram.com/shringtravels?avpt=MTRkZnlsbnp2YWJrNA==" target="_blank" rel="noopener">◎ Follow Us on Instagram</a></article>
+</div>
+</section>
+<footer>SHRING TRAVELS<br>Explore More. Experience the Himalayas.<br>+91 9027611795<br>shringtravels7@gmail.com<br>© 2026 Shring Travels<br><a class="social-link instagram-link" href="https://www.instagram.com/shringtravels?avpt=MTRkZnlsbnp2YWJrNA==" target="_blank" rel="noopener">◎ Instagram</a></footer>
+<script>
+// Add new confirmed departures inside this list.
+const upcomingDepartures = [
+  // Add confirmed departures here.
+  // Example: {trek:"Kedarkantha", date:"2026-12-15", seats:8, status:"Open"}
+];
+
+function renderUpcomingDepartures(){
+  const box = document.getElementById("upcomingDepartures");
+  if(!box) return;
+
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  const active = upcomingDepartures.filter(item => {
+    const date = new Date(item.date + "T00:00:00");
+    return !isNaN(date) && date >= today;
+  });
+
+  if(!active.length){
+    box.innerHTML = `<article>
+      <h3>New Trek Dates Coming Soon</h3>
+      <p>Upcoming departures will be added here. Contact our team for the latest schedule.</p>
+      <a class="btn" href="https://wa.me/919027611795">Enquire on WhatsApp</a>
+    </article>`;
+    return;
+  }
+
+  box.innerHTML = active.map(item => {
+    const dateLabel = new Date(item.date + "T00:00:00").toLocaleDateString("en-IN", {
+      day:"numeric", month:"long", year:"numeric"
+    });
+    const message = `Hello Shring Travels, I want details for ${item.trek} on ${dateLabel}.`;
+    return `<article>
+      <h3>${item.trek}</h3>
+      <p><b>Departure:</b> ${dateLabel}</p>
+      <p><b>Available Seats:</b> ${item.seats}</p>
+      <p><b>Status:</b> ${item.status}</p>
+      <a class="btn" href="https://wa.me/919027611795?text=${encodeURIComponent(message)}">Enquire / Book on WhatsApp</a>
+    </article>`;
+  }).join("");
+}
+renderUpcomingDepartures();
+
+const summer=[
+["Har Ki Dun","7D/6N",10500],["Valley of Flowers","6D/5N",7500],["Phulara Ridge","6D/5N",9160],["Bali Pass","8D/7N",18750],["Gaumukh Tapovan","7D/6N",16500],["Pindari Glacier","6D/5N",25000],["Roopkund","7D/6N",16500],["Pangarchulla Peak","7D/6N",11433],["Kedartal","6D/5N",15750],["Satopanth Lake","8D/7N",22500],["Vasuki Tal","9D/8N",28500],["Dodital Darwa Pass","6D/5N",10500],["Ali Bedni Bugyal","6D/5N",8950],["Panwali Kantha","5D/4N",13050],["Khaliya Top","5D/4N",9450],["Mukta Top","6D/5N",9450]];
+const winter=[
+["Kedarkantha","5D/4N",6499],["Brahmatal","6D/5N",7499],["Dayara Bugyal","4D/3N",5999],["Nag Tibba","2D/1N",2499],["Kuari Pass","6D/5N",8499],["Chopta Tungnath","2D/1N",4599],["Deoriatal Chandrashila","3D/2N",4999],["Ali Bedni Bugyal","6D/5N",8499]];
+const photos={
+"Har Ki Dun":"images/har-ki-dun.jpg",
+"Kedarkantha":"images/kedarkantha.jpg",
+"Brahmatal":"images/brahmatal.jpg",
+"Roopkund":"images/roopkund.jpg",
+"Chopta Tungnath":"images/tungnath.png",
+"Deoriatal Chandrashila":"images/chandrashila.jpg",
+"Valley of Flowers":"images/valley-of-flowers.jpg",
+"Phulara Ridge":"images/phulara-ridge.jpg",
+"Pangarchulla Peak":"images/pangarchulla.jpg",
+"Pindari Glacier":"images/pindari-glacier.jpg",
+"Satopanth Lake":"images/satopanth.jpg",
+"Panwali Kantha":"images/panwali-kantha.jpg",
+"Ali Bedni Bugyal":"images/ali-bugyal.jpg"
+, "Kedartal":"images/kedartal.jpg", "Vasuki Tal":"images/vasuki-tal.jpg", "Dodital Darwa Pass":"images/dodital-darwa.jpg", "Khaliya Top":"images/khaliya-top.jpg", "Dayara Bugyal":"images/dayara-bugyal.jpg", "Nag Tibba":"images/nag-tibba.jpg", "Gaumukh Tapovan":"images/gaumukh-tapovan.jpg",
+"Bali Pass":"images/bali-pass.jpg", "Kuari Pass":"images/kuari-pass.jpg", "Mukta Top":"images/mukta-top.jpg"};
+const trekDetails = {"Har Ki Dun": {"start": "Sankri Village", "overview": "Explore Har Ki Dun on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "May–June, September–October", "altitude": "3,566 m", "highlights": "Osla village, alpine meadows and Swargarohini views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Valley of Flowers": {"start": "Govindghat via Pulna", "overview": "Explore Valley of Flowers on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "July–September", "altitude": "3,658 m", "highlights": "Alpine flowers, waterfalls and mountain scenery", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Phulara Ridge": {"start": "Kotgaon / route trailhead", "overview": "Explore Phulara Ridge on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "May–June, September–October", "altitude": "Approx. 3,700 m", "highlights": "Ridge walks, meadows and Himalayan views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Bali Pass": {"start": "Sankri Village", "overview": "Explore Bali Pass on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Very Challenging", "season": "June, September", "altitude": "Approx. 4,950 m", "highlights": "High mountain pass and glaciers", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Gaumukh Tapovan": {"start": "Gangotri", "overview": "Explore Gaumukh Tapovan on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Challenging", "season": "May–June, September–October", "altitude": "Approx. 4,463 m", "highlights": "Bhagirathi peaks and glacier views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Pindari Glacier": {"start": "Loharkhet", "overview": "Explore Pindari Glacier on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "May–June, September–October", "altitude": "Approx. 3,660 m", "highlights": "Glacier, villages and river valleys", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Roopkund": {"start": "Wan Village", "overview": "Explore Roopkund on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Very Challenging", "season": "May–June, September–October", "altitude": "Approx. 5,020 m", "highlights": "Alpine meadows and rugged mountain terrain", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Pangarchulla Peak": {"start": "Dhak Village", "overview": "Explore Pangarchulla Peak on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Challenging", "season": "April–May, September–October", "altitude": "Approx. 4,590 m", "highlights": "Summit views and alpine forests", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Kedartal": {"start": "Gangotri", "overview": "Explore Kedartal on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Challenging", "season": "May–June, September–October", "altitude": "Approx. 4,750 m", "highlights": "Glacial lake and Thalay Sagar views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Satopanth Lake": {"start": "Mana Village", "overview": "Explore Satopanth Lake on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Challenging", "season": "June, September", "altitude": "Approx. 4,600 m", "highlights": "High-altitude lake and Himalayan peaks", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Vasuki Tal": {"start": "Kedarnath", "overview": "Explore Vasuki Tal on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Challenging", "season": "June, September", "altitude": "Approx. 4,135 m", "highlights": "Mountain lake and surrounding peaks", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Dodital Darwa Pass": {"start": "Sangam Chatti", "overview": "Explore Dodital Darwa Pass on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "April–June, September–November", "altitude": "Approx. 4,150 m", "highlights": "Dodital Lake, forests and mountain pass", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Ali Bedni Bugyal": {"start": "Wan Village", "overview": "Explore Ali Bedni Bugyal on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "April–June, September–November", "altitude": "Approx. 3,540 m", "highlights": "Alpine meadows and Trishul views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Panwali Kantha": {"start": "Ghuttu Village", "overview": "Explore Panwali Kantha on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "May–June, September–October", "altitude": "Approx. 3,500 m", "highlights": "Open meadows and Himalayan views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Khaliya Top": {"start": "Balanti Farm, Munsiyari", "overview": "Explore Khaliya Top on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Easy to Moderate", "season": "March–June, September–November", "altitude": "Approx. 3,500 m", "highlights": "Panchachuli views and grasslands", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Mukta Top": {"start": "Confirm exact Uttarkashi trailhead", "overview": "Explore Mukta Top on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "April–June, September–November", "altitude": "To be verified", "highlights": "Forest trails and mountain meadows", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Kedarkantha": {"start": "Sankri Village", "overview": "Explore Kedarkantha on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "December–April", "altitude": "Approx. 3,810 m", "highlights": "Snow trails, pine forests and summit views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Brahmatal": {"start": "Lohajung Village", "overview": "Explore Brahmatal on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "December–March", "altitude": "Approx. 3,735 m", "highlights": "Brahmatal Lake and Trishul views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Dayara Bugyal": {"start": "Raithal Village", "overview": "Explore Dayara Bugyal on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Easy to Moderate", "season": "December–June, September–November", "altitude": "Approx. 3,600 m", "highlights": "Wide meadows and Gangotri range views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Nag Tibba": {"start": "Pantwari Village", "overview": "Explore Nag Tibba on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Easy to Moderate", "season": "October–April", "altitude": "Approx. 3,022 m", "highlights": "Forest trail and summit viewpoints", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Kuari Pass": {"start": "Dhak Village", "overview": "Explore Kuari Pass on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "April–June, September–November", "altitude": "Approx. 3,820 m", "highlights": "Nanda Devi region and alpine meadows", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Chopta Tungnath": {"start": "Chopta", "overview": "Explore Chopta Tungnath on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Easy to Moderate", "season": "March–June, September–November", "altitude": "Tungnath 3,680 m; Chandrashila approx. 4,000 m", "highlights": "Tungnath Temple and Chandrashila views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}, "Deoriatal Chandrashila": {"start": "Sari Village", "overview": "Explore Deoriatal Chandrashila on a guided Himalayan journey. The exact itinerary depends on the confirmed package.", "difficulty": "Moderate", "season": "March–June, September–November", "altitude": "Chandrashila approx. 4,000 m", "highlights": "Deoriatal Lake, Tungnath and summit views", "includes": "Final inclusions must be confirmed in writing before booking. Guide, meals, camping equipment and permits may vary by package.", "important": "Altitude and difficulty are approximate and must be verified for the actual route. Check permits, weather and access conditions. Trek with a qualified guide and appropriate adult supervision."}};
+const treks=[...winter.map(t=>({...{t},season:"Winter"})),...summer.map(t=>({...{t},season:"Summer & Monsoon"}))];
+function render(){
+const q=search.value.toLowerCase(),s=season.value;
+const cardHtml=(t,label)=>`<article class="card">
+<img src="${photos[t[0]] || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22700%22 height=%22400%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23171008%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23d4af37%22 text-anchor=%22middle%22 font-size=%2230%22%3EPhoto coming soon%3C/text%3E%3C/svg%3E'}" alt="${t[0]}" loading="lazy">
+<div class="cardbody"><span class="tag">${label}</span><h3>${t[0]}</h3>
+<p><b>Duration:</b> ${t[1]}</p>
+<p><b>Starting Point:</b> ${trekDetails[t[0]]?.start || "To be confirmed"}</p>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(trekDetails[t[0]]?.start || "Starting point to be confirmed")}" target="_blank" rel="noopener">Open Starting Point in Google Maps ↗</a>
+<p class="description">${trekDetails[t[0]]?.overview || "Details to be confirmed."}</p>
+<details class="full-details"><summary>View Full Details</summary>
+<p><b>Trek Overview:</b> ${trekDetails[t[0]].overview}</p>
+<p><b>Starting Point:</b> ${trekDetails[t[0]].start}</p>
+<p><b>Duration (Days/Nights):</b> ${t[1]}</p>
+<p><b>Difficulty Level:</b> ${trekDetails[t[0]].difficulty}</p>
+<p><b>Best Season:</b> ${trekDetails[t[0]].season}</p>
+<p><b>Maximum Altitude:</b> ${trekDetails[t[0]].altitude}</p>
+<p><b>Trek Highlights:</b> ${trekDetails[t[0]].highlights}</p>
+<p><b>Package Includes:</b> ${trekDetails[t[0]].includes}</p>
+<p><b>Important Information:</b> ${trekDetails[t[0]].important}</p>
+</details>
+<div class="price">₹${t[2].toLocaleString("en-IN")} <small>/ person</small></div>
+<button class="btn" onclick="location.href='https://wa.me/919027611795?text='+encodeURIComponent('Hello Shring Travels, please share details and booking for ${t[0]}')">WhatsApp Booking →</button></div></article>`;
+const show=(items,label)=>items.filter(t=>t[0].toLowerCase().includes(q)&&(s==="All"||s===label)).map(t=>cardHtml(t,label)).join("");
+winterGrid.innerHTML=show(winter,"Winter");
+summerGrid.innerHTML=show(summer,"Summer & Monsoon");
+} 
+render();
+
+</script>
+<script type="module" src="reviews.js"></script>
+</body>
+</html>
+
+<style>
+.chardham-gallery{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-items:start;
+  gap:18px!important;
+}
+.chardham-gallery>div:nth-child(2){margin-top:35px}
+.chardham-gallery>div:nth-child(3){margin-top:-15px}
+.chardham-gallery>div:nth-child(4){margin-top:20px}
+.chardham-gallery img{
+  height:210px!important;
+  border-radius:18px!important;
+  box-shadow:0 8px 22px #0008;
+}
+.chardham-gallery>div:nth-child(2) img{height:165px!important}
+.chardham-gallery>div:nth-child(3) img{height:180px!important}
+.chardham-gallery p{
+  color:#d4af37;
+  font-weight:bold;
+  letter-spacing:1px;
+  text-align:center;
+}
+</style>
+
+<style>
+.chardham-gallery{
+  gap:22px!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+.chardham-gallery img{
+  height:280px!important;
+  border-radius:22px!important;
+}
+.chardham-gallery>div:nth-child(2) img{height:230px!important}
+.chardham-gallery>div:nth-child(3) img{height:250px!important}
+.chardham-gallery>div:nth-child(4) img{height:280px!important}
+.chardham-gallery p{
+  font-size:15px;
+  margin-top:10px;
+}
+</style>
+
+<style>
+.chardham-gallery{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  width:100vw!important;
+  max-width:100vw!important;
+  margin-left:calc(50% - 50vw)!important;
+  gap:25px!important;
+}
+.chardham-gallery>div{
+  width:100%!important;
+  margin:0!important;
+}
+.chardham-gallery img{
+  display:block;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  border-radius:0!important;
+}
+.chardham-gallery p{
+  text-align:center;
+  font-size:18px;
+  padding:8px;
+}
+</style>
